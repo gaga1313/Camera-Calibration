@@ -142,8 +142,3 @@ def ransac_fundamental_matrix(matches1, matches2, num_iters):
     best_inliers2 = matches2[inlier_best, :]
 
     return best_Fmatrix, best_inliers1, best_inliers2, best_inlier_residual
-
-    plt.ylabel("Residual")
-    plt.title('Current Residual vs. Best Residual per Iteration')
-    plt.legend()
-    plt.show()
