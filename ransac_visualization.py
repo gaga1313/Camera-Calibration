@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def visualize_ransac():
+def visualize_ransac(inlier_counts, inlier_residuals):
     iterations = np.arange(len(inlier_counts))
     best_inlier_counts = np.maximum.accumulate(inlier_counts)
     best_inlier_residuals = np.minimum.accumulate(inlier_residuals)
@@ -19,3 +19,8 @@ def visualize_ransac():
     plt.plot(iterations, inlier_residuals, label='Current Inlier Residual', color='red')
     plt.plot(iterations, best_inlier_residuals, label='Best Inlier Residual', color='blue')
     plt.xlabel("Iteration")
+
+    plt.ylabel("Residual")
+    plt.title('Current Residual vs. Best Residual per Iteration')
+    plt.legend()
+    plt.show()
